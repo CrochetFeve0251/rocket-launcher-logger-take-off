@@ -35,7 +35,7 @@ class ConfigsManager
         }
 
         $result_content = $results['content'];
-        $result_content = '   ' . ServiceProvider::class . ",\n" . $result_content;
+        $result_content = "\n    \\" . ServiceProvider::class . "::class," . $result_content;
         $content = str_replace($results['content'], $result_content, $content);
 
         $this->filesystem->update($providers_path, $content);
@@ -53,7 +53,7 @@ class ConfigsManager
 
         $content = $this->filesystem->read( $params_path );
 
-        if(preg_match('/[\'"]translation_key[\'"]\s=>\s*[\'"](?<key>[^\'"]*)[\'"]/', $content, $results)) {
+        if( ! preg_match('/[\'"]translation_key[\'"]\s=>\s*[\'"](?<key>[^\'"]*)[\'"]/', $content, $results)) {
             return;
         }
 
@@ -71,8 +71,8 @@ class ConfigsManager
 
         $indents = $results['indents'];
         $new_content = "$indents'log_enabled' => false,\n";
-        $new_content .= "$indents'log_handlers' => [\n$indents   " . MonologHandler::class . "::class\n$indents],\n";
-        $new_content .= "$indents'logger_name' => $name,\n";
+        $new_content .= "$indents'log_handlers' => [\n$indents    " . MonologHandler::class . "::class\n$indents],\n";
+        $new_content .= "$indents'logger_name' => '$name',\n";
         $new_content .= "$indents'log_file_name' => '$name.log',\n";
         $new_content .= "$indents'log_path' => '',\n";
         $new_content .= "$indents'log_debug_interval' => 0,\n";
