@@ -4,6 +4,12 @@ namespace RocketLauncherLoggerTakeOff\Services;
 
 use League\Flysystem\Filesystem;
 use RocketLauncherLoggerTakeOff\ServiceProvider;
+use Composer\Command\InstallCommand;
+use Composer\EventDispatcher\ScriptExecutionException;
+use Composer\IO\NullIO;
+use Composer\Factory;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
 
 class ProjectManager
 {
@@ -26,7 +32,7 @@ class ProjectManager
     public function cleanup() {
         $content = $this->filesystem->read(self::BUILDER_FILE);
 
-        $content = preg_replace('/\n *\\\\' . preg_quote(ServiceProvider::class) . '::class,\n/', '', $content);
+        $content = preg_replace('/\n *\\\\?' . preg_quote(ServiceProvider::class) . '::class,\n/', '', $content);
 
         $this->filesystem->update(self::BUILDER_FILE, $content);
 
@@ -41,6 +47,34 @@ class ProjectManager
         $content = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n";
 
         $this->filesystem->update(self::PROJECT_FILE, $content);
+    }
+
+    public function reload() {
+
+        if(defined('WPMEDIA_IS_TESTING')) {
+            return;
+        }
+
+        $this->filesystem->deleteDir('inc/Dependencies');
+        $this->filesystem->createDir('inc/Dependencies');
+
+        $jsonFile = $this->filesystem->getAdapter()->getPathPrefix() . 'composer.json';
+
+        $composer = Factory::create(new NullIO(), $jsonFile);
+        $command = new InstallCommand();
+        $command->setComposer($composer);
+        $arguments = array(
+            '--no-scripts' => true,
+        );
+        $command->addOption('no-plugins');
+        $command->addOption('no-scripts');
+        $input = new ArrayInput($arguments);
+        $output = new BufferedOutput();
+        try {
+            $command->run($input, $output);
+        } catch (ScriptExecutionException $e) {
+
+        }
     }
 
     public function add_library() {
@@ -58,7 +92,7 @@ class ProjectManager
             $json['require-dev']['crochetfeve0251/rocket-launcher-logger'] = '^0.0.1';
         }
 
-        if(! in_array('berlindb/core', $json['extra']['mozart']['packages'])) {
+        if(! in_array('crochetfeve0251/rocket-launcher-logger', $json['extra']['mozart']['packages'])) {
             $json['extra']['mozart']['packages'][] = 'crochetfeve0251/rocket-launcher-logger';
         }
 

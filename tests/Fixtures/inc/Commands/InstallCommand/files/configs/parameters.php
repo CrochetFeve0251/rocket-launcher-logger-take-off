@@ -18,7 +18,7 @@ return [
     'is_mu_plugin' => false,
     'log_enabled' => false,
     'log_handlers' => [
-        RocketLauncherLogger\MonologHandler::class
+        \RocketLauncherLogger\MonologHandler::class
     ],
     'logger_name' => 'rocketlauncher',
     'log_file_name' => 'rocketlauncher.log',

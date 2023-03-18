@@ -39,5 +39,6 @@ class InstallCommand extends Command
         $this->configs_manager->set_up_provider();
         $this->configs_manager->set_parameters();
         $this->project_manager->cleanup();
+        $this->project_manager->reload();
     }
 }

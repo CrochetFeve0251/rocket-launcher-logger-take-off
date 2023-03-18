@@ -71,7 +71,7 @@ class ConfigsManager
 
         $indents = $results['indents'];
         $new_content = "$indents'log_enabled' => false,\n";
-        $new_content .= "$indents'log_handlers' => [\n$indents    " . MonologHandler::class . "::class\n$indents],\n";
+        $new_content .= "$indents'log_handlers' => [\n$indents    \\" . MonologHandler::class . "::class\n$indents],\n";
         $new_content .= "$indents'logger_name' => '$name',\n";
         $new_content .= "$indents'log_file_name' => '$name.log',\n";
         $new_content .= "$indents'log_path' => '',\n";
