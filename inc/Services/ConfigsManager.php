@@ -3,6 +3,7 @@
 namespace RocketLauncherLoggerTakeOff\Services;
 
 use League\Flysystem\Filesystem;
+use RocketLauncherBuilder\Entities\Configurations;
 use RocketLauncherLogger\MonologHandler;
 use RocketLauncherLogger\ServiceProvider;
 
@@ -21,7 +22,8 @@ class ConfigsManager
         $this->filesystem = $filesystem;
     }
 
-    public function set_up_provider() {
+    public function set_up_provider(Configurations $configurations) {
+        $base_namespace = $configurations->getBaseNamespace();
         $providers_path = 'configs/providers.php';
 
         if ( ! $this->filesystem->has( $providers_path ) ) {
@@ -35,15 +37,15 @@ class ConfigsManager
         }
 
         $result_content = $results['content'];
-        $result_content = "\n    \\" . ServiceProvider::class . "::class," . $result_content;
+        $result_content = "\n    \\$base_namespace\\Dependencies\\" . ServiceProvider::class . "::class," . $result_content;
         $content = str_replace($results['content'], $result_content, $content);
 
         $this->filesystem->update($providers_path, $content);
     }
 
 
-    public function set_parameters() {
-
+    public function set_parameters(Configurations $configurations) {
+        $base_namespace = $configurations->getBaseNamespace();
 
         $params_path = 'configs/parameters.php';
 
@@ -71,7 +73,7 @@ class ConfigsManager
 
         $indents = $results['indents'];
         $new_content = "$indents'log_enabled' => false,\n";
-        $new_content .= "$indents'log_handlers' => [\n$indents    \\" . MonologHandler::class . "::class\n$indents],\n";
+        $new_content .= "$indents'log_handlers' => [\n$indents    \\$base_namespace\\Dependencies\\" . MonologHandler::class . "::class\n$indents],\n";
         $new_content .= "$indents'logger_name' => '$name',\n";
         $new_content .= "$indents'log_file_name' => '$name.log',\n";
         $new_content .= "$indents'log_path' => '',\n";

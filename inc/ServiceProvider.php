@@ -43,7 +43,7 @@ class ServiceProvider implements ServiceProviderInterface
     {
         $project_manager = new ProjectManager($this->filesystem);
         $configs_manager = new ConfigsManager($this->filesystem);
-        $app->add(new InstallCommand($project_manager, $configs_manager));
+        $app->add(new InstallCommand($this->configs, $project_manager, $configs_manager));
 
         return $app;
     }
