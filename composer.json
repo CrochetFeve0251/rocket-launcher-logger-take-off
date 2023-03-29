@@ -30,5 +30,16 @@
     "psr-4": {
       "RocketLauncherLoggerTakeOff\\Tests\\": "tests/"
     }
+  },
+  "extra": {
+    "rocket-launcher": {
+      "provider" : "RocketLauncherLoggerTakeOff\\ServiceProvider",
+      "command": "logger:initialize",
+      "install": true,
+      "clean": false,
+      "libraries": {
+        "crochetfeve0251/rocket-launcher-logger": "^0.0.1"
+      }
+    }
   }
 }

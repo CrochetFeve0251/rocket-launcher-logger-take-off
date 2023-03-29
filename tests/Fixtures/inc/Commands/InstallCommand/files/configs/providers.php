@@ -3,6 +3,6 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
-    \RocketLauncherLogger\ServiceProvider::class,
+    \RocketLauncher\Dependencies\RocketLauncherLogger\ServiceProvider::class,
     \RocketLauncher\ServiceProvider::class,
 ];

@@ -8,7 +8,6 @@ use RocketLauncherBuilder\Entities\Configurations;
 use RocketLauncherBuilder\ServiceProviders\ServiceProviderInterface;
 use RocketLauncherLoggerTakeOff\Commands\InstallCommand;
 use RocketLauncherLoggerTakeOff\Services\ConfigsManager;
-use RocketLauncherLoggerTakeOff\Services\ProjectManager;
 
 class ServiceProvider implements ServiceProviderInterface
 {
@@ -41,9 +40,8 @@ class ServiceProvider implements ServiceProviderInterface
     }
     public function attach_commands(App $app): App
     {
-        $project_manager = new ProjectManager($this->filesystem);
         $configs_manager = new ConfigsManager($this->filesystem);
-        $app->add(new InstallCommand($this->configs, $project_manager, $configs_manager));
+        $app->add(new InstallCommand($this->configs, $configs_manager));
 
         return $app;
     }

@@ -37,7 +37,7 @@ class ConfigsManager
         }
 
         $result_content = $results['content'];
-        $result_content = "\n    \\$base_namespace\\Dependencies\\" . ServiceProvider::class . "::class," . $result_content;
+        $result_content = "\n    \\$base_namespace" . "Dependencies\\" . ServiceProvider::class . "::class," . $result_content;
         $content = str_replace($results['content'], $result_content, $content);
 
         $this->filesystem->update($providers_path, $content);
