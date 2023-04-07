@@ -1,6 +1,6 @@
 {
   "name": "wp-launchpad/logger-take-off",
-  "description": "Initialisation library for psr4 plugin",
+  "description": "Initialisation library for logger from Launchpad framework",
   "minimum-stability": "stable",
   "license": "proprietary",
   "type": "library",
