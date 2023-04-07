@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherLoggerTakeOff\Tests\Integration;
+namespace LaunchpadLoggerTakeOff\Tests\Integration;
 
 use ReflectionObject;
-use RocketLauncherBuilder\AppBuilder;
-use RocketLauncherLoggerTakeOff\ServiceProvider;
+use LaunchpadCLI\AppBuilder;
+use LaunchpadLoggerTakeOff\ServiceProvider;
 use WPMedia\PHPUnit\Unit\VirtualFilesystemTestCase;
 
 abstract class TestCase extends VirtualFilesystemTestCase

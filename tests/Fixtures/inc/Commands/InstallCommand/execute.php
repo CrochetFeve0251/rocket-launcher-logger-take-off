@@ -4,13 +4,13 @@ return [
     'vfs_dir' => '/',
     'structure' => [
         'configs' => [
-            'parameters.php' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php'),
-            'providers.php' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php'),
+            'parameters.php' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php'),
+            'providers.php' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php'),
         ],
         'bin' => [
-            'generator' =>   file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
+            'generator' =>   file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
         ],
-        'composer.json' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json'),
+        'composer.json' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json'),
     ],
     'test_data' => [
         'shouldTransform' => [
@@ -19,19 +19,19 @@ return [
                 'files' => [
                     'composer.json' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json')
+                        'content' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json')
                     ],
                     'configs/parameters.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php')
+                        'content' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php')
                     ],
                     'configs/providers.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php')
+                        'content' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php')
                     ],
                     'bin/generator' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
+                        'content' => file_get_contents(LAUNCHPAD_LOGGER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
                     ],
                 ]
             ],

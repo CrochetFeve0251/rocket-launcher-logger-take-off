@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherLoggerTakeOff\Commands;
+namespace LaunchpadLoggerTakeOff\Commands;
 
-use RocketLauncherBuilder\Commands\Command;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherLoggerTakeOff\Services\ConfigsManager;
+use LaunchpadCLI\Commands\Command;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadLoggerTakeOff\Services\ConfigsManager;
 
 class InstallCommand extends Command
 {

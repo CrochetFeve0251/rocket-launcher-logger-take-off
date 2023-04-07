@@ -1,8 +1,8 @@
 <?php
 
-namespace RocketLauncherLoggerTakeOff\Tests\Integration\inc\Commands\InstallCommand;
+namespace LaunchpadLoggerTakeOff\Tests\Integration\inc\Commands\InstallCommand;
 
-use RocketLauncherLoggerTakeOff\Tests\Integration\TestCase;
+use LaunchpadLoggerTakeOff\Tests\Integration\TestCase;
 
 class Test_Execute extends TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace RocketLauncherLoggerTakeOff;
+namespace LaunchpadLoggerTakeOff;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\App;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherBuilder\ServiceProviders\ServiceProviderInterface;
-use RocketLauncherLoggerTakeOff\Commands\InstallCommand;
-use RocketLauncherLoggerTakeOff\Services\ConfigsManager;
+use LaunchpadCLI\App;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadCLI\ServiceProviders\ServiceProviderInterface;
+use LaunchpadLoggerTakeOff\Commands\InstallCommand;
+use LaunchpadLoggerTakeOff\Services\ConfigsManager;
 
 class ServiceProvider implements ServiceProviderInterface
 {

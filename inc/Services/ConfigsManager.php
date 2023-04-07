@@ -1,9 +1,9 @@
 <?php
 
-namespace RocketLauncherLoggerTakeOff\Services;
+namespace LaunchpadLoggerTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\Entities\Configurations;
+use LaunchpadCLI\Entities\Configurations;
 use RocketLauncherLogger\MonologHandler;
 use RocketLauncherLogger\ServiceProvider;
 

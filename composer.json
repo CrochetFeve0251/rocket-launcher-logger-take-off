@@ -1,5 +1,5 @@
 {
-  "name": "crochetfeve0251/rocket-launcher-logger-take-off",
+  "name": "wp-launchpad/logger-take-off",
   "description": "Initialisation library for psr4 plugin",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -11,8 +11,8 @@
     }
   ],
   "require": {
-    "crochetfeve0251/rocket-launcher-builder": "1.0.*",
-    "crochetfeve0251/rocket-launcher-logger": "0.0.*",
+    "wp-launchpad/cli": "1.0.*",
+    "wp-launchpad/logger": "0.0.*",
     "ext-mbstring": "*",
     "ext-json": "*",
     "composer/composer": "^2.5"
@@ -23,22 +23,22 @@
   },
   "autoload": {
     "psr-4": {
-      "RocketLauncherLoggerTakeOff\\": "inc/"
+      "LaunchpadLoggerTakeOff\\": "inc/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "RocketLauncherLoggerTakeOff\\Tests\\": "tests/"
+      "LaunchpadLoggerTakeOff\\Tests\\": "tests/"
     }
   },
   "extra": {
-    "rocket-launcher": {
-      "provider" : "RocketLauncherLoggerTakeOff\\ServiceProvider",
+    "launchpad": {
+      "provider" : "LaunchpadLoggerTakeOff\\ServiceProvider",
       "command": "logger:initialize",
       "install": true,
       "clean": true,
       "libraries": {
-        "crochetfeve0251/rocket-launcher-logger": "^0.0.1"
+        "crochetfeve0251/rocket-launcher-logger": "^0.0.2"
       }
     }
   }
