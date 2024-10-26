@@ -1,7 +1,7 @@
 {
   "name": "wp-launchpad/logger-take-off",
   "description": "Initialisation library for logger from Launchpad framework",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "license": "proprietary",
   "type": "library",
   "authors": [
