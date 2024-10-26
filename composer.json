@@ -1,0 +1,45 @@
+{
+  "name": "wp-launchpad/logger-take-off",
+  "description": "Initialisation library for logger from Launchpad framework",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "type": "library",
+  "authors": [
+    {
+      "name": "coquardcyr",
+      "email": "coquardcyr@gmail.com"
+    }
+  ],
+  "require": {
+    "wp-launchpad/cli": "1.0.*",
+    "wp-launchpad/logger": "0.0.*",
+    "ext-mbstring": "*",
+    "ext-json": "*",
+    "composer/composer": "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5 || ^8 || ^9",
+    "wp-media/phpunit": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "LaunchpadLoggerTakeOff\\": "inc/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LaunchpadLoggerTakeOff\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "launchpad": {
+      "provider" : "LaunchpadLoggerTakeOff\\ServiceProvider",
+      "command": "logger:initialize",
+      "install": true,
+      "clean": true,
+      "libraries": {
+        "crochetfeve0251/rocket-launcher-logger": "^0.0.2"
+      }
+    }
+  }
+}
