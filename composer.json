@@ -41,5 +41,11 @@
         "crochetfeve0251/rocket-launcher-logger": "^0.0.2"
       }
     }
+  },
+  "scripts": {
+    "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --colors=always --configuration tests/Integration/phpunit.xml.dist",
+    "run-tests": [
+      "@test-integration"
+    ]
   }
 }
