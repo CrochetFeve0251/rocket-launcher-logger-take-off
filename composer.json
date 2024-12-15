@@ -39,9 +39,6 @@
             "libraries": {
                 "crochetfeve0251/rocket-launcher-logger": "^0.0.2"
             }
-        },
-        "branch-alias": {
-            "dev-feature/ll-subscribers": "3.1-dev"
         }
     },
     "scripts": {
