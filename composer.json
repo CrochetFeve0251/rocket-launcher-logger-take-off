@@ -37,7 +37,7 @@
             "install": true,
             "clean": true,
             "libraries": {
-                "crochetfeve0251/rocket-launcher-logger": "^0.0.2"
+                "crochetfeve0251/rocket-launcher-logger": "^3.1"
             }
         }
     },
